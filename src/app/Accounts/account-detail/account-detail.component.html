@@ -1,0 +1,8 @@
+
+<section class="accout-detail">
+  <h1> {{account.firstname}} {{account.lastname}} :</h1>
+  <p> id : {{account.id}} </p>
+  <p> create at : {{account.createdAt | dateAgo}} </p>
+  <p> update at : {{account.updatedAt | dateAgo}} </p>
+</section>
+<button type="button" (click)="deleteAccount()" routerLink="/">Delete account</button>
