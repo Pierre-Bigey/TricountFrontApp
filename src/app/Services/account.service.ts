@@ -28,12 +28,14 @@ export class AccountService {
     return lastValueFrom<Account>(request$);
   }
 
-  registerAccount(firstname: string, lastname:string){
+  registerAccount(username: string, firstname: string, lastname:string, password: string){
     //console.log("New User : "+firstname + ", "+lastname);
     const headers = { 'Content-Type': 'application/json', 'My-Custom-Header': 'foobar' };
     this.http.post(this.url, {
+      "username": username,
       "firstname": firstname,
-      "lastname": lastname
+      "lastname": lastname,
+      "password": password
     },
       { headers }).subscribe(data => {
       console.log(data);

@@ -11,6 +11,11 @@ export const routes: Routes = [
     title: 'Home Page',
   },
   {
+    path: 'accountlist',
+    component: AccountListComponent,
+    title: 'Account List',
+  },
+  {
     path: 'details/:id',
     component: AccountDetailComponent,
     title: 'Account details',

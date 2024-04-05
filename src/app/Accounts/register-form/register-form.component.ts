@@ -17,8 +17,10 @@ export class RegisterFormComponent {
   accountService = inject(AccountService);
 
   registerForm = new FormGroup({
+    username: new FormControl(''),
     firstName: new FormControl(''),
     lastName: new FormControl(''),
+    password: new FormControl(''),
   });
 
   constructor() {
@@ -26,8 +28,10 @@ export class RegisterFormComponent {
 
   registerAccount(){
     this.accountService.registerAccount(
-      this.registerForm.value.firstName ?? 'John' ,
-      this.registerForm.value.lastName ?? 'Snow');
+      this.registerForm.value.username ?? '' ,
+      this.registerForm.value.firstName ?? '' ,
+      this.registerForm.value.lastName ?? '',
+      this.registerForm.value.password ?? '');
   }
 
 }

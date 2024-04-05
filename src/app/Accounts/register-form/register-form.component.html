@@ -2,11 +2,15 @@
 <article>
   <h1>Register form : </h1>
   <p>Enter your info here : </p>
-  <form [formGroup]="registerForm" (submit)="registerAccount()">
+  <form class="registerform" [formGroup]="registerForm" (submit)="registerAccount()">
+    <label for="username">Username</label>
+    <input id="username" type="text" formControlName="username" />
     <label for="first-name">First Name</label>
     <input id="first-name" type="text" formControlName="firstName" />
     <label for="last-name">Last Name</label>
     <input id="last-name" type="text" formControlName="lastName" />
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password" />
     <button type="submit" class="primary">Apply now</button>
   </form>
 </article>
