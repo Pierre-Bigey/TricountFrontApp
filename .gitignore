@@ -1,1 +1,5 @@
 /node_modules/
+/.angular/
+/.idea/
+/.vscode/
+.editorconfig
