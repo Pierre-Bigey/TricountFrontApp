@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -12,7 +13,6 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {httpInterceptorProviders} from "./_helpers/auth.interceptor";
-import {RouterOutlet} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import {RouterOutlet} from "@angular/router";
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterOutlet
+    HttpClientModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

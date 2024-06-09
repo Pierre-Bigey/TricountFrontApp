@@ -3,7 +3,6 @@ import {UserService} from "../_services/user.service";
 
 @Component({
   selector: 'app-board-moderator',
-  standalone: true,
   templateUrl: './board-moderator.component.html',
   styleUrl: './board-moderator.component.css'
 })

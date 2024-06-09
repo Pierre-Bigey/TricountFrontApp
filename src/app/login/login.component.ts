@@ -5,7 +5,6 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
 
 @Component({
   selector: 'app-login',
-  standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
