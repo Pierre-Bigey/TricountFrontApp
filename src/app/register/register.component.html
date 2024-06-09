@@ -1,0 +1,129 @@
+<div class="register-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        type="text"
+        formControlName="firstname"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"
+      />
+      @if (submitted && f['firstname'].errors) {
+        <div class="invalid-feedback">
+          @if (f['firstname'].errors?.['required']) {
+            <div>Firstname is required</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        type="text"
+        formControlName="lastname"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"
+      />
+      @if (submitted && f['lastname'].errors) {
+        <div class="invalid-feedback">
+          @if (f['lastname'].errors?.['required']) {
+            <div>Lastname is required</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+      />
+      @if (submitted && f['username'].errors) {
+        <div class="invalid-feedback">
+          @if (f['username'].errors?.['required']) {
+            <div>Username is required</div>
+          }
+          @if (f['username'].errors?.['minlength']) {
+            <div>Username must be at least 4 characters</div>
+          }
+          @if (f['username'].errors?.['maxlength']) {
+            <div>Username must not exceed 20 characters</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+      />
+      @if (submitted && f['password'].errors) {
+        <div class="invalid-feedback">
+          @if (f['password'].errors?.['required']) {
+            <div>Password is required</div>
+          }
+          @if (f['password'].errors?.['minlength']) {
+            <div>Password must be at least 6 characters</div>
+          }
+          @if (f['password'].errors?.['maxlength']) {
+            <div>Username must not exceed 64 characters</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        formControlName="confirmPassword"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+      />
+      @if (submitted && f['confirmPassword'].errors) {
+        <div class="invalid-feedback">
+          @if (f['confirmPassword'].errors?.['required']) {
+            <div>Confirm Password is required</div>
+          }
+          @if (f['confirmPassword'].errors?.['matching']) {
+            <div>Confirm Password does not match</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group form-check">
+      <input
+        type="checkbox"
+        formControlName="acceptTerms"
+        class="form-check-input"
+        [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+      />
+      <label for="acceptTerms" class="form-check-label">
+        I have read and agree to the Terms
+      </label>
+      @if (submitted && f['acceptTerms'].errors) {
+        <div class="invalid-feedback">Accept Terms is required</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Register</button>
+      <button
+        type="button"
+        (click)="onReset()"
+        class="btn btn-warning float-right"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

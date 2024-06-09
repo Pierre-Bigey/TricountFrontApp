@@ -1,0 +1,74 @@
+<div class="login_form">
+  @if (!isLoggedIn) {
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+      />
+      @if (submitted && f['username'].errors) {
+        <div class="invalid-feedback">
+          @if (f['username'].errors?.['required']) {
+            <div>Username is required</div>
+          }
+          @if (f['username'].errors?.['minlength']) {
+            <div>Username must be at least 4 characters</div>
+          }
+          @if (f['username'].errors?.['maxlength']) {
+            <div>Username cannot exceed 20 characters</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+      />
+      @if (submitted && f['password'].errors) {
+        <div class="invalid-feedback">
+          @if (f['password'].errors?.['required']) {
+            <div>Password is required</div>
+          }
+          @if (f['password'].errors?.['minlength']) {
+            <div>Password must be at least 6 characters</div>
+          }
+          @if (f['password'].errors?.['maxlength']) {
+            <div>Username must not exceed 64 characters</div>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Login</button>
+      <button
+        type="button"
+        (click)="onReset()"
+        class="btn btn-warning float-right"
+      >
+        Reset
+      </button>
+    </div>
+    <div class="form-group">
+      @if (submitted && isLoginFailed) {
+        <div class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+      }
+    </div>
+
+  </form>
+  } @else {
+    <div class="alert alert-success">Logged in as {{ roles }}.</div>
+  }
+
+</div>
